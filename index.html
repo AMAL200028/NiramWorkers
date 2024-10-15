@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>നിറം വർക്കേഴ്സ്</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/icon.jpeg" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+
+    <!-- Font Awesome for icons -->
+    <script
+        src="https://kit.fontawesome.com/a076d05399.js"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Color Variables */
+        :root {
+            --primary-color: #ff5722; /* Vibrant Orange */
+            --secondary-color: #009688; /* Teal */
+            --tertiary-color: #8bc34a; /* Lime Green */
+            --light-color: #f1f1f1; /* Light Gray */
+            --dark-color: #333; /* Dark Gray */
+            --accent-color: #ffc107; /* Yellow */
+            --highlight-color: #ff9800; /* Highlight Orange */
+        }
+
+        /* Body and Text Styling */
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: var(--light-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures body takes full height of viewport */
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+        }
+
+        p, a {
+            color: var(--dark-color);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 50px 0;
+            flex-grow: 1; /* Makes sure content grows and pushes footer down */
+        }
+
+        /* Video Section */
+        .video-section {
+            background-color: var(--tertiary-color);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        #about {
+            padding: 50px 0;
+        }
+
+        /* Project Cards */
+        .project-card {
+            border: 2px solid var(--highlight-color);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative; /* Ensures it stays within footer */
+            animation: slideIn 0.5s ease-out; /* Slide in animation */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-card {
+                margin-bottom: 20px; /* Spacing between cards on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-bar {
+                font-size: 0.9rem; /* Slightly smaller text on mobile */
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-hard-hat"></i> നിറം വർക്കേഴ്സ്
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">
+                        <i class="fas fa-briefcase"></i> പദ്ധതികൾ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        <i class="fas fa-info-circle"></i> ഞങ്ങളെക്കുറിച്ച്
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Video Section -->
+        <section class="video-section text-center">
+            <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">ഞങ്ങളുടെ ഏറ്റവും പുതിയ പദ്ധതി കാണുക</h2>
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="/assets/NiramVideo.mp4" type="video/mp4" />
+                        <!-- Replace with your video path -->
+                        നിങ്ങളുടെ ബ്രൗസർ വീഡിയോ ടാഗിനെ പിന്തുണയ്ക്കുന്നില്ല.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="text-center animate__animated animate__fadeInDown">ഞങ്ങളുടെ പദ്ധതികൾ</h2>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 mb-4">
+                        <div class="project-card p-3">
+                            <img src="/assets/Interior works.jpg" class="img-fluid rounded" alt="Interior Work" />
+                            <h4 class="mt-2">ഇൻ്റീരിയർ വർക്ക്</h4>
+                            <p>
+                                ഞങ്ങളുടെ ഇൻ്റീരിയർ വർക്ക് നിങ്ങളുടെ സ്ഥലം ഹൃദയസ്പർശിയായ
+                                സൗന്ദര്യവും സമാധാനവും നൽകുന്നു.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-4">
+                        <div class="project-card p-3">
+                            <img src="/assets/Welding.jpg" class="img-fluid rounded" alt="Welding Work" />
+                            <h4 class="mt-2">വെൽഡിംഗ് വർക്ക്</h4>
+                            <p>
+                                20 വർഷത്തിലേറെ അനുഭവമുള്ള വിദഗ്ധരാൽ ചെയ്യപ്പെടുന്ന നമ്മുടെ
+                                വെൽഡിംഗ് സേവനങ്ങൾ, വ്യവസായത്തിന്റെ വിവിധ ആവശ്യങ്ങൾ നിറവേറ്റുന്നു.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-4">
+                        <div class="project-card p-3">
+                            <img src="/assets/Kitchen work.jpg" class="img-fluid rounded" alt="Kitchen Work" />
+                            <h4 class="mt-2">കിച്ചൻ വർക്</h4>
+                            <p>
+                                ഉയർന്ന നിലവാരമുള്ള സാമഗ്രികൾ ഉപയോഗിച്ച് നിർമ്മിച്ചിട്ടുള്ള
+                                ഞങ്ങളുടെ കിച്ചൻ വർക്ക്, ദീർഘകാല വിശ്വാസ്യതയ്ക്കായുള്ള ഉറപ്പാണ്.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-4">
+                        <div class="project-card p-3">
+                            <img src="/assets/Tex.jpg" class="img-fluid rounded" alt="Texture Work" />
+                            <h4 class="mt-2">ടെക്സ്ചർ വർക്ക്</h4>
+                            <p>
+                                ഞങ്ങളുടെ കൌശലപ്രദമായ ടെക്സ്ചർ വർക്ക്, ആകർഷകമായ
+                                ദൃശ്യമാനങ്ങൾ സൃഷ്ടിക്കാൻ സഹായിക്കുന്നു.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h2 class="animate__animated animate__fadeInDown">ഞങ്ങളേക്കുറിച്ച്</h2>
+                        <p class="animate__animated animate__fadeInUp">
+                            👷‍♂️ <strong>ഞങ്ങൾ എന്താണ്</strong>: നാം 20 വർഷത്തിലധികം വ്യവസായത്തിൽ
+                            ഉള്ള അനുഭവം ഉള്ളവർ ആണ്. നിങ്ങളുടെ നിർദ്ദിഷ്ട ആവശ്യങ്ങൾക്കായി മികച്ച
+                            സൗകര്യങ്ങൾ നൽകുന്നു.
+                        </p>
+                        <p class="animate__animated animate__fadeInUp">
+                            <strong>ഞങ്ങളുടെ സേവനങ്ങൾ:</strong>
+                            <br />
+                            🛠️ <strong>ഇൻ്റീരിയർ വർക്ക്</strong>: ഏറ്റവും മികച്ച ഗുണമേന്മയും ആധുനിക
+                            ഡിസൈനും
+                            സംയോജിപ്പിച്ച് പൂർണ്ണമായ ഇന്റീരിയറുകൾ.
+                            <br />
+                            🔧 <strong>വെൽഡിംഗ് വർക്ക്</strong>: വ്യവസായ ആവശ്യങ്ങൾക്കായി
+                            അനുയോജ്യമായ വെൽഡിംഗ് സേവനങ്ങൾ.
+                            <br />
+                            🍽️ <strong>കിച്ചൻ വർക്ക്</strong>: നിങ്ങളുടെ മനസ്സിലുളള
+                            കിച്ചന്റെ സ്വപ്നം സാക്ഷാത്കരിക്കാൻ സഹകരിക്കുന്നു.
+                            <br />
+                            🎨 <strong>ടെക്സ്ചർ വർക്ക്</strong>: ദൃശ്യ ആകർഷണവും
+                            ആഴവും നൽകുന്ന സൗന്ദര്യവർണ്ണങ്ങൾ.
+                            <br />
+                            🚀 <strong>ഞങ്ങളെ ബന്ധപ്പെടുക:</strong> നിങ്ങളുടെ
+                            പ്രോജക്റ്റിന് ആവശ്യമായ മികച്ച സേവനങ്ങൾക്കായി ഇന്ന് തന്നെ
+                            ഞങ്ങളെ ബന്ധപ്പെടൂ!
+                        </p>
+                        <p class="animate__animated animate__fadeInUp">
+                            📞 Call Us: 8075024491 | 6282343450
+                            <br />
+                            ✉️ Email: niramworkers@gmail.com
+                            <br />
+                            നിങ്ങളുടെ സ്വപ്നങ്ങൾ നമ്മൾക്കൊപ്പം സാക്ഷാത്കരിക്കൂ!
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <img
+                            src="/assets/Niram Banner.jpeg "
+                            class="img-fluid rounded animate__animated animate__fadeIn"
+                            alt="About Us"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="contact-bar">
+            <p>
+                📞 Call Us: 8075024491 | 6282343450 | ✉️ Email: niramworkers@gmail.com
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <!-- Custom JavaScript for animations -->
+    <script>
+        // GSAP Animations on scroll
+        gsap.from("#projects h2", {
+            duration: 1,
+            y: -100,
+            opacity: 0,
+            ease: "bounce.out",
+        });
+        gsap.from("#projects img", {
+            duration: 1,
+            scale: 0.5,
+            opacity: 0,
+            stagger: 0.2,
+        });
+        gsap.from(".video-section h2", { duration: 1, x: -100, opacity: 0 });
+        gsap.from("#about img", { duration: 1, scale: 0.8, opacity: 0 });
+    </script>
+</body>
+</html>
